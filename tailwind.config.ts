@@ -31,10 +31,12 @@ export default {
         neonGreen: "var(--neon-green)"
       },
       keyframes: {
-        blink: { "0%, 100%": { opacity: "1" }, "50%": { opacity: "0" } }
+        blink: { "0%, 100%": { opacity: "1" }, "50%": { opacity: "0" } },
+        blinkOffTime: { "0%, 100%": { opacity: "0" }, "50%": { opacity: "1" } }
       },
       animation: {
-        blink: "blink 1s infinite"
+        blinkInfinite: "blink 1s infinite",
+        blinkOnTime: "blinkOffTime 1s"
       }
     }
   },

@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react"
 interface SearchSelectProps {
   placeholder?: string // 검색창에 표시할 텍스트
   focusedReset?: boolean // 포커스 여부
+  initialQuery?: string // 초기 검색어
   options: string[] // 옵션 배열
   onChange: (value: string) => void // 선택된 값을 부모에 전달하는 콜백 함수
 }
@@ -13,11 +14,16 @@ export default function SearchSelect({
   options,
   onChange,
   placeholder = "Search...",
-  focusedReset = false
+  focusedReset = false,
+  initialQuery = ""
 }: SearchSelectProps) {
   const [query, setQuery] = useState("")
   const [filteredOptions, setFilteredOptions] = useState<string[]>(options)
   const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    setQuery(initialQuery)
+  }, [initialQuery])
 
   const containerRef = useRef<HTMLDivElement>(null)
 

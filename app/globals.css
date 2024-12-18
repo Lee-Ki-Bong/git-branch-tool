@@ -121,11 +121,11 @@
 
   /* Terminal */
   .terminal {
-    @apply max-h-[590px] overflow-hidden overflow-y-scroll p-8;
+    @apply max-h-[590px] overflow-hidden overflow-y-scroll;
   }
 
   .terminal::before {
-    @apply animate-blink mr-4 text-xl [content:'>'];
+    @apply animate-blinkInfinite mr-4 text-xl [content:'>'];
   }
 
   .terminal:empty::after {
