@@ -19,6 +19,17 @@ const Header = () => {
     dispatch({ type: ActionTypes.SET_BRANCH_NAME, payload: branchName })
   }
 
+  const handleCheckOut = () => {
+    if (!state.userName || !state.branchName) {
+      dispatch({
+        type: ActionTypes.SET_MESSAGE,
+        payload: "Please select User and Branch."
+      })
+      return
+    }
+    alert(state.userName + " " + state.branchName + " 체크아웃")
+  }
+
   return (
     <>
       <div className="svg--center">
@@ -39,7 +50,10 @@ const Header = () => {
           onChange={(value) => handleBranchChange(value)}
         />
       </div>
-      <button className="button-neon-normal ml-auto max-sm:w-full">
+      <button
+        className="button-neon-normal ml-auto max-sm:w-full"
+        onClick={() => handleCheckOut()}
+      >
         Check Out
       </button>
     </>

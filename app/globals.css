@@ -28,8 +28,8 @@
     animation: gradient 15s ease infinite;
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
     font-family: Arial, Helvetica, sans-serif;
-    font-size: large;
-    @apply font-extralight;
+    /* font-size: large; */
+    @apply text-xl font-extralight;
   }
 
   @keyframes gradient {
@@ -88,7 +88,7 @@
     -webkit-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
     color: var(--neon-normal);
-    @apply text-neonNormal button-shape;
+    @apply text-neonNormal button-shape uppercase;
   }
 
   .button-neon-normal:hover {

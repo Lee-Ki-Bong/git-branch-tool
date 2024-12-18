@@ -26,13 +26,9 @@ export default function Home() {
         <div className="glass sub-padding flex max-xl:flex-col xl:gap-28">
           <Header />
         </div>
-
         <div className="glass sub-padding terminal flex-auto">
-          <span className={` ${cn(getStatusClassName())}`}>
-            {state.message}
-          </span>
+          <span className={`font-mono`}>{state.message}</span>
         </div>
-
         <div className="glass sub-padding svg--center flex flex-row gap-4">
           <Footer />
         </div>
