@@ -12,6 +12,7 @@ const Header = () => {
       <div className="svg--center">
         <SVGUser width="20" height="20" className="text-neonGreen" />
         <SearchSelect
+          placeholder="Search User..."
           options={userList}
           onChange={(value) => console.log(value)}
         />
@@ -19,7 +20,13 @@ const Header = () => {
       <div className="svg--center flex-1">
         <SvgGitBranch width="20" height="20" className="text-neonOrange" />
         <SearchSelect
-          options={["apple", "banana", "orange", "grape"]}
+          placeholder="Search Branch..."
+          options={[
+            "apple",
+            "banana",
+            "orange",
+            "grapeasdfasdfasdfasdfasdfasdfasdfasdfsadfasdfasdfdasdasdasdasdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          ]}
           onChange={(value) => console.log(value)}
         />
       </div>

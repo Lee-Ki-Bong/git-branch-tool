@@ -29,6 +29,12 @@ export default {
         neonNormal: "var(--neon-normal)",
         neonWhite: "var(--neon-white)",
         neonGreen: "var(--neon-green)"
+      },
+      keyframes: {
+        blink: { "0%, 100%": { opacity: "1" }, "50%": { opacity: "0" } }
+      },
+      animation: {
+        blink: "blink 1s infinite"
       }
     }
   },
@@ -39,27 +45,24 @@ export default {
       const newUtilities = {
         ".text-shadow-neon": {
           textShadow: `
-          0 0 2px var(--foreground),
-          0 0 17px var(--foreground),
-          0 0 30px var(--foreground),
-          0 0 70px var(--foreground),
-          0 0 80px var(--foreground),
-          0 0 90px var(--foreground),
-          0 0 140px var(--foreground)`
+          0 0 4px rgba(255, 255, 255, 0.6), 
+          0 0 10px rgba(255, 255, 255, 0.8), 
+          0 0 20px rgba(0, 215, 195, 0.3), 
+          0 0 40px rgba(0, 215, 195, 0.3)`
         },
         ".text-shadow-neon-green": {
           textShadow: `
             0 0 4px rgba(51, 255, 51, 0.6), 
-            0 0 10px rgba(51, 255, 51, 0.8), 
-            0 0 20px rgba(0, 255, 0, 0.6), 
-            0 0 40px rgba(0, 153, 0, 0.5)`
+            0 0 8px rgba(51, 255, 51, 0.8), 
+            0 0 12px rgba(0, 255, 0, 0.6), 
+            0 0 22px rgba(0, 153, 0, 0.5)`
         },
         ".text-shadow-neon-orange": {
           textShadow: `
             0 0 4px rgba(255, 153, 0, 0.6), 
-            0 0 10px rgba(255, 153, 0, 0.8), 
-            0 0 20px rgba(255, 153, 0, 0.6), 
-            0 0 40px rgba(255, 102, 0, 0.5)`
+            0 0 8px rgba(255, 153, 0, 0.8), 
+            0 0 12px rgba(255, 153, 0, 0.6), 
+            0 0 22px rgba(255, 102, 0, 0.5)`
         }
       }
       addUtilities(newUtilities)

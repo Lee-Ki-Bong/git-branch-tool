@@ -8,7 +8,11 @@ export default function Home() {
         <Header />
       </div>
 
-      <div className="glass sub-padding flex-auto"></div>
+      <div className="glass sub-padding terminal flex-auto">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        quas, hic, quaerat incidunt natus ea totam tenetur laborum tempora sequi
+        nisi possimus cum magni eaque earum laudantium, amet autem ipsum.
+      </div>
 
       <div className="glass sub-padding svg--center flex flex-row gap-4">
         <Footer />

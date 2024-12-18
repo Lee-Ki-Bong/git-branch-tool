@@ -3,11 +3,16 @@
 import { useState, useEffect, useRef } from "react"
 
 interface SearchSelectProps {
+  placeholder?: string // 검색창에 표시할 텍스트
   options: string[] // 옵션 배열
   onChange: (value: string) => void // 선택된 값을 부모에 전달하는 콜백 함수
 }
 
-export default function SearchSelect({ options, onChange }: SearchSelectProps) {
+export default function SearchSelect({
+  options,
+  onChange,
+  placeholder = "Search..."
+}: SearchSelectProps) {
   const [query, setQuery] = useState("")
   const [filteredOptions, setFilteredOptions] = useState<string[]>(options)
   const [isOpen, setIsOpen] = useState(false)
@@ -51,7 +56,7 @@ export default function SearchSelect({ options, onChange }: SearchSelectProps) {
         <input
           type="text"
           className="text-neon peer/search-user flex-1 bg-transparent p-2 focus:outline-none"
-          placeholder="Search..."
+          placeholder={placeholder}
           value={query}
           onChange={(e) => {
             setQuery(e.target.value)
@@ -62,21 +67,23 @@ export default function SearchSelect({ options, onChange }: SearchSelectProps) {
 
         <button
           type="button"
-          className="peer-placeholder-shown/search-user:animate-blink peer-placeholder-shown/search-user ml-2 animate-none text-2xl"
+          className="ml-2 animate-none text-2xl"
           onClick={() => handleSelect("", !isOpen)}
         >
           {"▼"}
         </button>
       </div>
       {isOpen && (
-        <ul className="glass absolute left-0 right-0 z-50 mt-1 max-h-[500px] overflow-y-auto max-sm:max-h-[370px]">
+        <ul className="glass absolute left-0 right-0 z-50 mt-1 max-h-[500px] overflow-y-auto bg-[#1b2735] max-sm:max-h-[370px]">
           {filteredOptions.length === 0 && (
-            <li className="p-2 text-sm text-gray-500">No results found</li>
+            <li className="text-neonRed text--neon--red p-4 text-sm">
+              No results found
+            </li>
           )}
           {filteredOptions.map((option) => (
             <li
               key={option}
-              className="text-neonWhite hover:text-shadow-neon cursor-pointer p-4 text-gray-500"
+              className="text-neonWhite hover:text-shadow-neon cursor-pointer truncate p-4 text-gray-500"
               onClick={() => handleSelect(option, false)}
             >
               {option}
