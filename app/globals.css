@@ -2,20 +2,191 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    --foreground: #ffffff99;
+    --neon-green: #33ff33;
+    --neon-normal: #0fa;
+    --neon-red: #ff3333;
+    --neon-orange: #ff9900;
+    --neon-purple: #bc13fe;
+    --neon-blue: #00ccff;
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container {
+    @apply max-w-[1440px] whitespace-nowrap;
+  }
+}
+
+@layer utilities {
+  .h1 {
+    @apply text-4xl;
+  }
+
+  .h2 {
+    @apply text-2xl;
+  }
+
+  .h3 {
+    @apply text-xl;
+  }
+}
+
+@layer styles {
+  .text--neon--white {
+    text-shadow:
+      0 0 2px var(--foreground),
+      0 0 17px var(--foreground),
+      0 0 30px var(--foreground),
+      0 0 70px var(--foreground),
+      0 0 80px var(--foreground),
+      0 0 90px var(--foreground),
+      0 0 140px var(--foreground);
+  }
+
+  .text--neon--normal {
+    text-shadow:
+      0 0 2px var(--neon-normal),
+      0 0 17px var(--neon-normal),
+      0 0 30px var(--neon-normal),
+      0 0 70px var(--neon-normal),
+      0 0 80px var(--neon-normal),
+      0 0 90px var(--neon-normal),
+      0 0 140px var(--neon-normal);
+    animation: pulsate 2.5s infinite alternate;
+  }
+
+  .text--neon--green {
+    text-shadow:
+      0 0 2px var(--neon-green),
+      0 0 17px var(--neon-green),
+      0 0 30px var(--neon-green),
+      0 0 70px var(--neon-green),
+      0 0 80px var(--neon-green),
+      0 0 90px var(--neon-green),
+      0 0 140px var(--neon-green);
+    animation: flicker--neon--green 1.5s infinite;
+  }
+
+  .text--neon--red {
+    text-shadow:
+      0 0 2px var(--neon-red),
+      0 0 17px var(--neon-red),
+      0 0 30px var(--neon-red),
+      0 0 70px var(--neon-red),
+      0 0 80px var(--neon-red),
+      0 0 90px var(--neon-red),
+      0 0 140px var(--neon-red);
+  }
+
+  .text--neon--orange {
+    text-shadow:
+      0 0 2px var(--neon-orange),
+      0 0 17px var(--neon-orange),
+      0 0 30px var(--neon-orange),
+      0 0 70px var(--neon-orange),
+      0 0 80px var(--neon-orange),
+      0 0 90px var(--neon-orange),
+      0 0 140px var(--neon-orange);
+  }
+
+  .text--neon--purple {
+    text-shadow:
+      0 0 2px var(--neon-purple),
+      0 0 17px var(--neon-purple),
+      0 0 30px var(--neon-purple),
+      0 0 70px var(--neon-purple),
+      0 0 80px var(--neon-purple),
+      0 0 90px var(--neon-purple),
+      0 0 140px var(--neon-purple);
+  }
+
+  .text--neon--blue {
+    text-shadow:
+      0 0 2px var(--neon-blue),
+      0 0 17px var(--neon-blue),
+      0 0 30px var(--neon-blue),
+      0 0 70px var(--neon-blue),
+      0 0 80px var(--neon-blue),
+      0 0 90px var(--neon-blue),
+      0 0 140px var(--neon-blue);
+  }
+
+  .border--neon--purple {
+    border: 0.2rem solid #fff;
+    border-radius: 2rem;
+    box-shadow:
+      0 0 0.2rem #fff,
+      0 0 0.2rem #fff,
+      0 0 2rem var(--neon-purple),
+      0 0 0.8rem var(--neon-purple),
+      0 0 2.8rem var(--neon-purple),
+      inset 0 0 1.3rem var(--neon-purple);
+  }
+}
+
+@layer animations {
+  @keyframes flicker--neon--green {
+    /* animation: flicker--neon--green 1.5s infinite; */
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+      text-shadow:
+        0 0 4px var(--foreground),
+        0 0 11px var(--foreground),
+        0 0 19px var(--foreground),
+        0 0 40px var(--neon-green),
+        0 0 80px var(--neon-green),
+        0 0 90px var(--neon-green),
+        0 0 100px var(--neon-green),
+        0 0 150px var(--neon-green);
+    }
+    20%,
+    24%,
+    55% {
+      text-shadow: none;
+    }
+  }
+
+  @keyframes pulsate {
+    /* animation: pulsate 2.5s infinite alternate; */
+    100% {
+      /* Larger blur radius */
+      text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px var(--neon-normal),
+        0 0 80px var(--neon-normal),
+        0 0 90px var(--neon-normal),
+        0 0 100px var(--neon-normal),
+        0 0 150px var(--neon-normal);
+    }
+    0% {
+      /* Smaller blur radius */
+      text-shadow:
+        0 0 2px #fff,
+        0 0 4px #fff,
+        0 0 6px #fff,
+        0 0 10px var(--neon-normal),
+        0 0 45px var(--neon-normal),
+        0 0 55px var(--neon-normal),
+        0 0 70px var(--neon-normal),
+        0 0 80px var(--neon-normal);
+    }
+  }
 }
