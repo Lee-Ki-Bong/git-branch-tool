@@ -27,7 +27,8 @@ export default {
         neonPurple: "var(--neon-purple)",
         neonBlue: "var(--neon-blue)",
         neonNormal: "var(--neon-normal)",
-        neonWhite: "var(--neon-white)"
+        neonWhite: "var(--neon-white)",
+        neonGreen: "var(--neon-green)"
       }
     }
   },
