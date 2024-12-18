@@ -36,7 +36,7 @@ export default {
       },
       animation: {
         blinkInfinite: "blink 1s infinite",
-        blinkOnTime: "blinkOffTime 1s"
+        blinkOnTime: "blinkOffTime 1s ease-in-out 2"
       }
     }
   },

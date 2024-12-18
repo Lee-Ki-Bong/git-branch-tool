@@ -9,22 +9,26 @@ const Footer = () => {
   const { state } = useGlobal()
   return (
     <>
-      <SVGUser width="20" height="20" className="text-neonGreen" />
-      <p className="flex items-center truncate pr-4">
-        <span
-          className={`text-neonGreen qa__user__name truncate ${cn(state.userName !== "" ? "animate-blinkOnTime" : "")}`}
-        >
-          {state.userName}
-        </span>
-      </p>
-      <SvgGitBranch width="20" height="20" className="text-neonOrange" />
-      <p className="flex flex-1 items-center truncate">
-        <span
-          className={`text-neonOrange choice__branch__name truncate ${cn(state.branchName !== "" ? "animate-blinkOnTime" : "")}`}
-        >
-          {state.branchName}
-        </span>
-      </p>
+      <div className="svg--center">
+        <SVGUser width="24" height="24" className="text-neonGreen" />
+        <p className="flex items-center truncate pr-4">
+          <span
+            className={`qa__user__name truncate text-neonGreen ${cn(state.userName !== "" ? "animate-blinkOnTime" : "")}`}
+          >
+            {state.userName}
+          </span>
+        </p>
+      </div>
+      <div className="svg--center">
+        <SvgGitBranch width="24" height="24" className="text-neonOrange" />
+        <p className="flex flex-1 items-center truncate">
+          <span
+            className={`choice__branch__name truncate text-neonOrange ${cn(state.branchName !== "" ? "animate-blinkOnTime" : "")}`}
+          >
+            {state.branchName}
+          </span>
+        </p>
+      </div>
     </>
   )
 }

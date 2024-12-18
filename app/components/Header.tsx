@@ -33,7 +33,7 @@ const Header = () => {
   return (
     <>
       <div className="svg--center">
-        <SVGUser width="20" height="20" className="text-neonGreen" />
+        <SVGUser width="24" height="24" className="text-neonGreen" />
         <SearchSelect
           focusedReset={true}
           placeholder="Search User..."
@@ -42,7 +42,7 @@ const Header = () => {
         />
       </div>
       <div className="svg--center flex-1">
-        <SvgGitBranch width="20" height="20" className="text-neonOrange" />
+        <SvgGitBranch width="24" height="24" className="text-neonOrange" />
         <SearchSelect
           initialQuery={state.branchName}
           placeholder="Search Branch..."

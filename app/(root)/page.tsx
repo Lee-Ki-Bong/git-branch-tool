@@ -29,7 +29,7 @@ export default function Home() {
         <div className="glass sub-padding terminal flex-auto">
           <span className={`font-mono`}>{state.message}</span>
         </div>
-        <div className="glass sub-padding svg--center flex flex-row gap-4">
+        <div className="glass sub-padding flex flex-row gap-4 max-xl:flex-col max-xl:content-center">
           <Footer />
         </div>
       </section>

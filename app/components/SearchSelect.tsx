@@ -63,7 +63,7 @@ export default function SearchSelect({
       <div className="buttom-gray-line flex items-center border-none bg-transparent p-2">
         <input
           type="text"
-          className="text-neon peer/search-user flex-1 truncate bg-transparent p-2 focus:outline-none"
+          className="text-neon peer/search-user flex-1 truncate border-b-2 bg-transparent p-2 focus:outline-none"
           placeholder={placeholder}
           value={query}
           onChange={(e) => {
@@ -86,14 +86,14 @@ export default function SearchSelect({
       {isOpen && (
         <ul className="glass absolute left-0 right-0 z-50 mt-1 max-h-[500px] overflow-y-auto bg-[#1b2735] max-sm:max-h-[370px]">
           {filteredOptions.length === 0 && (
-            <li className="text-neonRed text--neon--red p-4 text-sm">
+            <li className="text--neon--red p-4 text-sm text-neonRed">
               No results found
             </li>
           )}
           {filteredOptions.map((option) => (
             <li
               key={option}
-              className="text-neonWhite hover:text-shadow-neon cursor-pointer truncate p-4 text-gray-500"
+              className="cursor-pointer truncate p-4 text-gray-500 text-neonWhite hover:text-shadow-neon"
               onClick={() => handleSelect(option, false)}
             >
               {option}
