@@ -47,6 +47,51 @@
   .root--container {
     @apply padding h-screen max-w-[1440px];
   }
+
+  /* Button */
+  .button-shape {
+    @apply flex h-12 min-w-44 items-center justify-center gap-2 rounded-full px-5 text-base;
+  }
+
+  .button-neon-normal {
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: 3px solid var(--neon-normal);
+    border-radius: 50px;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    color: var(--neon-normal);
+    @apply text-neonNormal button-shape;
+  }
+
+  .button-neon-normal:hover {
+    box-shadow:
+      0 0 10px 0 var(--neon-normal) inset,
+      0 0 20px 2px var(--neon-normal);
+    border: 3px solid var(--neon-normal);
+    @apply text--neon--normal;
+  }
+
+  .button-neon-white {
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: 3px solid var(--foreground);
+    border-radius: 50px;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    color: var(--foreground);
+    @apply text-neonWhite button-shape;
+  }
+
+  .button-neon-white:hover {
+    box-shadow:
+      0 0 10px 0 var(--foreground) inset,
+      0 0 20px 2px var(--foreground);
+    border: 3px solid var(--foreground);
+    @apply text--neon--white;
+  }
 }
 
 @layer utilities {
@@ -92,7 +137,7 @@
   }
 
   .sub-padding {
-    @apply px-4 py-6 sm:px-8 sm:py-10;
+    @apply p-4 sm:p-8;
   }
 }
 
