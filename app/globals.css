@@ -4,7 +4,14 @@
 
 @layer base {
   :root {
-    --background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    --background: linear-gradient(
+      -45deg,
+      #1b2735,
+      #223040,
+      #33425a,
+      #44576e,
+      #1b2735
+    );
     --foreground: #ffffff99;
     --neon-green: #33ff33;
     --neon-normal: #0fa;
@@ -17,14 +24,28 @@
   body {
     color: var(--foreground);
     background: var(--background);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
     font-family: Arial, Helvetica, sans-serif;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }
 
 @layer components {
   .container {
-    @apply max-w-[1440px] whitespace-nowrap;
+    @apply h-screen max-w-[1440px];
   }
 }
 
