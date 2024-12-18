@@ -12,6 +12,7 @@ const Header = () => {
       <div className="svg--center">
         <SVGUser width="20" height="20" className="text-neonGreen" />
         <SearchSelect
+          focusedReset={true}
           placeholder="Search User..."
           options={userList}
           onChange={(value) => console.log(value)}

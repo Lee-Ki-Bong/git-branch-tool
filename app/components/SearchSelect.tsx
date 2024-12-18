@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 
 interface SearchSelectProps {
   placeholder?: string // 검색창에 표시할 텍스트
+  focusedReset?: boolean // 포커스 여부
   options: string[] // 옵션 배열
   onChange: (value: string) => void // 선택된 값을 부모에 전달하는 콜백 함수
 }
@@ -11,7 +12,8 @@ interface SearchSelectProps {
 export default function SearchSelect({
   options,
   onChange,
-  placeholder = "Search..."
+  placeholder = "Search...",
+  focusedReset = false
 }: SearchSelectProps) {
   const [query, setQuery] = useState("")
   const [filteredOptions, setFilteredOptions] = useState<string[]>(options)
@@ -55,14 +57,16 @@ export default function SearchSelect({
       <div className="buttom-gray-line flex items-center border-none bg-transparent p-2">
         <input
           type="text"
-          className="text-neon peer/search-user flex-1 bg-transparent p-2 focus:outline-none"
+          className="text-neon peer/search-user flex-1 truncate bg-transparent p-2 focus:outline-none"
           placeholder={placeholder}
           value={query}
           onChange={(e) => {
             setQuery(e.target.value)
             setIsOpen(true)
           }}
-          onFocus={() => handleSelect("", true)}
+          onFocus={() => {
+            focusedReset ? handleSelect("", true) : setIsOpen(true)
+          }}
         />
 
         <button
