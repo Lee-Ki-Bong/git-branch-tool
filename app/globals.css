@@ -44,8 +44,8 @@
 }
 
 @layer components {
-  .container {
-    @apply h-screen max-w-[1440px];
+  .root--container {
+    @apply padding h-screen max-w-[1440px];
   }
 }
 
@@ -60,6 +60,39 @@
 
   .h3 {
     @apply text-xl;
+  }
+
+  /* 일관된 Padding */
+  .padding {
+    @apply px-8 py-12 sm:px-16 sm:py-20;
+  }
+
+  .padding-x {
+    @apply px-8 sm:px-16;
+  }
+
+  .padding-y {
+    @apply py-12 sm:py-24;
+  }
+
+  .padding-l {
+    @apply pl-8 sm:pl-16;
+  }
+
+  .padding-r {
+    @apply pr-8 sm:pr-16;
+  }
+
+  .padding-t {
+    @apply pt-12 sm:pt-24;
+  }
+
+  .padding-b {
+    @apply pb-12 sm:pb-24;
+  }
+
+  .sub-padding {
+    @apply px-4 py-6 sm:px-8 sm:py-10;
   }
 }
 
@@ -92,7 +125,6 @@
       0 0 80px var(--neon-normal),
       0 0 90px var(--neon-normal),
       0 0 140px var(--neon-normal);
-    animation: pulsate 2.5s infinite alternate;
   }
 
   .text--neon--green {
@@ -104,7 +136,6 @@
       0 0 80px var(--neon-green),
       0 0 90px var(--neon-green),
       0 0 140px var(--neon-green);
-    animation: flicker--neon--green 1.5s infinite;
   }
 
   .text--neon--red {
