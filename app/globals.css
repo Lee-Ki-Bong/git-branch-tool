@@ -343,3 +343,25 @@
     }
   }
 }
+
+@layer snowEffect {
+  .snow {
+    filter: drop-shadow(0 0 10px white);
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+}
