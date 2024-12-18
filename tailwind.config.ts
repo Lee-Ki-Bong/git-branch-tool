@@ -35,6 +35,34 @@ export default {
   plugins: [
     require("tailwindcss-animate"),
     require("@tailwindcss/typography"),
-    function ({ addUtilities, theme }: PluginAPI) {}
+    function ({ addUtilities, theme }: PluginAPI) {
+      const newUtilities = {
+        ".text-shadow-neon": {
+          textShadow: `
+          0 0 2px var(--foreground),
+          0 0 17px var(--foreground),
+          0 0 30px var(--foreground),
+          0 0 70px var(--foreground),
+          0 0 80px var(--foreground),
+          0 0 90px var(--foreground),
+          0 0 140px var(--foreground)`
+        },
+        ".text-shadow-neon-green": {
+          textShadow: `
+            0 0 4px rgba(51, 255, 51, 0.6), 
+            0 0 10px rgba(51, 255, 51, 0.8), 
+            0 0 20px rgba(0, 255, 0, 0.6), 
+            0 0 40px rgba(0, 153, 0, 0.5)`
+        },
+        ".text-shadow-neon-orange": {
+          textShadow: `
+            0 0 4px rgba(255, 153, 0, 0.6), 
+            0 0 10px rgba(255, 153, 0, 0.8), 
+            0 0 20px rgba(255, 153, 0, 0.6), 
+            0 0 40px rgba(255, 102, 0, 0.5)`
+        }
+      }
+      addUtilities(newUtilities)
+    }
   ]
 } satisfies Config
